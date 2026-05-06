@@ -5,7 +5,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-image-wrapper">
             <div className="about-image">
-              <img src="/butterchicken.png" alt="Badri's Restaurant signature dish" />
+              <img src={`${import.meta.env.BASE_URL}butterchicken.png`} alt="Badri's Restaurant signature dish" />
             </div>
             <div className="about-image-accent"></div>
           </div>

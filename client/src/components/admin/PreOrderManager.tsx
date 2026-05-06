@@ -40,7 +40,7 @@ export default function PreOrderManager() {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
@@ -54,7 +54,7 @@ export default function PreOrderManager() {
 
   const updateStatus = async (id: string, status: string) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders/${id}/status`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders/${id}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

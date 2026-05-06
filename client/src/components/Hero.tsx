@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero-bg">
-        <img src="/badripic.png" alt="Badri's Restaurant ambiance" />
+        <img src={`${import.meta.env.BASE_URL}badripic.png`} alt="Badri's Restaurant ambiance" />
       </div>
 
       <div className="hero-content">

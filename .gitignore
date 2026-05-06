@@ -12,6 +12,9 @@ client/*.local
 server/node_modules/
 server/.env
 
+# Client environment
+client/.env
+
 # Editor files
 .vscode/
 .idea/

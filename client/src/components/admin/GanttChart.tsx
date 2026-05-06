@@ -56,7 +56,7 @@ export default function GanttChart() {
   const fetchGanttData = async () => {
     setLoading(true)
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations/gantt?date=${date}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations/gantt?date=${date}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
@@ -70,7 +70,7 @@ export default function GanttChart() {
 
   const fetchAllReservations = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations?date=${date}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations?date=${date}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
@@ -100,7 +100,7 @@ export default function GanttChart() {
 
   const updateStatus = async (id: string, status: string) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations/${id}/status`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations/${id}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ export default function GanttChart() {
 
   const assignTable = async (id: string, tableNumber: number) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations/${id}/table`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations/${id}/table`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

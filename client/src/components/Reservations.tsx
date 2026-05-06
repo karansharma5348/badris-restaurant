@@ -21,7 +21,7 @@ export default function Reservations() {
   const fetchReservations = async () => {
     setLoading(true)
     try {
-      const res = await fetch('/api/reservations')
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations`)
       const data = await res.json()
       if (data.success) {
         setReservations(data.data)

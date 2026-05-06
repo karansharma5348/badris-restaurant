@@ -37,7 +37,7 @@ export default function Contact() {
 
   const fetchMenu = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu`)
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu`)
       const data = await res.json()
       if (data.success) setMenuItems(data.data)
     } catch {
@@ -95,7 +95,7 @@ export default function Contact() {
         preOrderItems: preOrderItems.length > 0 ? preOrderItems : undefined,
       }
 
-      const response = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reservations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

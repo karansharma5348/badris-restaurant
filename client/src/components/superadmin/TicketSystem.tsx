@@ -33,7 +33,7 @@ export default function TicketSystem() {
 
   const fetchTickets = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
@@ -47,7 +47,7 @@ export default function TicketSystem() {
 
   const updateTicket = async (id: string, updates: any) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export default function TicketSystem() {
   const createTicket = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

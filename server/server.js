@@ -17,7 +17,29 @@ const app = express()
 const PORT = process.env.PORT || 5000
 
 // Middleware
-app.use(cors())
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:4173',
+  process.env.CLIENT_URL,
+].filter(Boolean)
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) return callback(null, true)
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      // In production, also allow the origin if it matches common patterns
+      if (process.env.NODE_ENV === 'production') {
+        callback(null, true) // Allow all origins in production for now
+      } else {
+        callback(null, true)
+      }
+    }
+  },
+  credentials: true,
+}))
 app.use(express.json())
 app.use(cookieParser())
 
@@ -56,6 +78,15 @@ app.get('/api/health', (req, res) => {
     restaurant: "Badri's Restaurant",
     location: 'Chembur, Mumbai',
     timestamp: new Date().toISOString(),
+  })
+})
+
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    message: "Badri's Restaurant API",
+    version: '1.0.0',
+    health: '/api/health',
   })
 })
 

@@ -33,7 +33,7 @@ export default function AdminManager() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
@@ -69,8 +69,8 @@ export default function AdminManager() {
 
     try {
       const url = editingUser
-        ? `\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users/${editingUser._id}`
-        : `\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users`
+        ? `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users/${editingUser._id}`
+        : `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users`
 
       const method = editingUser ? 'PUT' : 'POST'
 
@@ -109,7 +109,7 @@ export default function AdminManager() {
 
   const toggleActive = async (userId: string, isActive: boolean) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users/${userId}/toggle`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/users/${userId}/toggle`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

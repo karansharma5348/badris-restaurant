@@ -20,7 +20,7 @@ export default function MessagesList() {
 
   const fetchMessages = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
@@ -34,7 +34,7 @@ export default function MessagesList() {
 
   const markAsRead = async (id: string) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact/${id}/read`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact/${id}/read`, {
         method: 'PATCH',
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -46,7 +46,7 @@ export default function MessagesList() {
 
   const createTicket = async (msg: ContactMessage) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets/from-contact/${msg._id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/tickets/from-contact/${msg._id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

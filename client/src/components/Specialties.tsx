@@ -2,25 +2,25 @@ const specialties = [
   {
     name: 'Chicken Biryani',
     price: '₹280',
-    image: '/biryani.png',
+    image: `${import.meta.env.BASE_URL}biryani.png`,
     desc: 'Aromatic basmati rice layered with tender chicken pieces, saffron, and a blend of royal spices. A Mughlai masterpiece.',
   },
   {
     name: 'Chicken Tandoori',
     price: '₹320',
-    image: '/tandoori.png',
+    image: `${import.meta.env.BASE_URL}tandoori.png`,
     desc: 'Juicy chicken marinated in yogurt and spices, slow-roasted in our traditional clay tandoor to smoky perfection.',
   },
   {
     name: 'Chicken 65',
     price: '₹250',
-    image: '/chicken65.png',
+    image: `${import.meta.env.BASE_URL}chicken65.png`,
     desc: 'Crispy, fiery, and irresistible — deep-fried chicken tossed with curry leaves, chilies, and our secret spice blend.',
   },
   {
     name: 'Butter Chicken',
     price: '₹300',
-    image: '/butterchicken.png',
+    image: `${import.meta.env.BASE_URL}butterchicken.png`,
     desc: 'Tender tandoori chicken simmered in a rich, creamy tomato-butter gravy. The ultimate comfort food.',
   },
 ]

@@ -32,7 +32,7 @@ export default function AdminOverview() {
 
   const fetchOverview = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/overview`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admin/overview`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const json = await res.json()

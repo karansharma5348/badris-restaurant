@@ -32,7 +32,7 @@ const EMPTY_FORM = {
   price: '',
   category: 'starters',
   description: '',
-  image: '/chicken65.png',
+  image: `${import.meta.env.BASE_URL}chicken65.png`,
   badge: '',
   isVeg: false,
   tags: '',
@@ -52,7 +52,7 @@ export default function MenuDesigner() {
 
   const fetchItems = async () => {
     try {
-      const res = await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/all`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/all`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const data = await res.json()
@@ -81,8 +81,8 @@ export default function MenuDesigner() {
 
     try {
       const url = editingId
-        ? `\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/${editingId}`
-        : `\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu`
+        ? `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/${editingId}`
+        : `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu`
       const method = editingId ? 'PUT' : 'POST'
 
       await fetch(url, {
@@ -122,7 +122,7 @@ export default function MenuDesigner() {
 
   const toggleAvailability = async (id: string) => {
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/${id}/availability`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/${id}/availability`, {
         method: 'PATCH',
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -135,7 +135,7 @@ export default function MenuDesigner() {
   const deleteItem = async (id: string) => {
     if (!confirm('Remove this item from the menu?')) return
     try {
-      await fetch(`\${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/menu/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       })
